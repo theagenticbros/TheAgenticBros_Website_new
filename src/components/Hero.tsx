@@ -200,6 +200,12 @@ export default function Hero() {
       ref={sectionRef}
       onMouseMove={handleMouseMove}
       className="relative flex min-h-[96dvh] items-center justify-center overflow-hidden pb-16 pt-28"
+      style={{
+        WebkitMaskImage:
+          "linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%)",
+        maskImage:
+          "linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%)",
+      }}
     >
       {/* Living aurora — breathes on its own, bends toward the cursor */}
       <motion.div style={{ x: auroraX1, y: auroraY1 }} className="absolute inset-0">
