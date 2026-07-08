@@ -15,11 +15,12 @@ export default function Footer() {
     <footer className="border-t border-line bg-alt py-12">
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 px-6 md:flex-row">
         <Image
-          src="/logo.png"
+          src="/logo.webp"
           alt="The Agentic Bros"
-          width={1614}
-          height={377}
-          className="h-9 w-auto"
+          width={130}
+          height={32}
+          className="h-8 w-auto opacity-80"
+          style={{ filter: "brightness(0) saturate(100%)" }}
         />
 
         <div className="flex items-center gap-3">
