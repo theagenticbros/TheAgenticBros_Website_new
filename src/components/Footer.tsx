@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Mail } from "lucide-react";
 import { FaGithub, FaXTwitter, FaLinkedin } from "react-icons/fa6";
 
@@ -13,9 +14,13 @@ export default function Footer() {
   return (
     <footer className="border-t border-line bg-alt py-12">
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 px-6 md:flex-row">
-        <span className="font-heading text-lg font-bold text-ink">
-          THE AGENTIC <span className="text-accent-ink">BROS</span>
-        </span>
+        <Image
+          src="/logo.png"
+          alt="The Agentic Bros"
+          width={1614}
+          height={377}
+          className="h-9 w-auto"
+        />
 
         <div className="flex items-center gap-3">
           {socials.map(({ href, label, Icon }) => (

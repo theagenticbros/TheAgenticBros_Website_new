@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 const navLinks = [
   { href: "#work", label: "Work" },
@@ -23,8 +24,15 @@ export default function Navbar() {
       className="fixed inset-x-0 top-4 z-50 px-4"
     >
       <nav className="glass mx-auto flex h-16 max-w-5xl items-center justify-between rounded-full pl-6 pr-2">
-        <Link href="/" className="font-heading text-base font-bold tracking-tight sm:text-lg">
-          THE AGENTIC <span className="text-accent-ink">BROS</span>
+        <Link href="/" aria-label="The Agentic Bros — home" className="flex items-center">
+          <Image
+            src="/logo.png"
+            alt="The Agentic Bros"
+            width={1614}
+            height={377}
+            priority
+            className="h-7 w-auto sm:h-8"
+          />
         </Link>
 
         {/* Desktop links */}
