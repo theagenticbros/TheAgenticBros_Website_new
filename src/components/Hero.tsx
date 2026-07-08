@@ -207,21 +207,21 @@ export default function Hero() {
           <div className="bloom bloom-drift left-[-12%] top-[-8%] h-[36rem] w-[36rem] bg-bloom-sky opacity-60" />
         </motion.div>
         <motion.div style={{ x: auroraX2, y: auroraY2 }} className="absolute inset-0">
-          <div className="bloom bloom-drift-slow right-[-10%] top-[12%] h-[32rem] w-[32rem] bg-bloom-lilac opacity-60" />
+          <div className="bloom bloom-drift-slow right-[-18%] top-[-6%] h-[44rem] w-[44rem] bg-bloom-lilac opacity-45" />
         </motion.div>
         <motion.div style={{ x: auroraX3, y: auroraY3 }} className="absolute inset-0">
           <div className="bloom bloom-drift bottom-[-22%] left-[22%] h-[30rem] w-[42rem] bg-bloom-peach opacity-45" />
         </motion.div>
       </div>
 
-      {/* Edge dissolve — sits above fragments (z-20 > z-10) and fades content into the page */}
+      {/* Edge dissolve — fades the aurora into the page; sits below fragments so cards stay crisp */}
       <div
-        className="pointer-events-none absolute inset-y-0 left-0 z-20 w-56"
-        style={{ background: "linear-gradient(to right, #fafaf7 20%, transparent 100%)" }}
+        className="pointer-events-none absolute inset-y-0 left-0 z-[5] w-[26rem]"
+        style={{ background: "linear-gradient(to right, #fafaf7 12%, transparent 100%)" }}
       />
       <div
-        className="pointer-events-none absolute inset-y-0 right-0 z-20 w-56"
-        style={{ background: "linear-gradient(to left, #fafaf7 20%, transparent 100%)" }}
+        className="pointer-events-none absolute inset-y-0 right-0 z-[5] w-[26rem]"
+        style={{ background: "linear-gradient(to left, #fafaf7 12%, transparent 100%)" }}
       />
 
       <div className="relative z-10 mx-auto w-full max-w-5xl px-6">
