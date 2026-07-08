@@ -152,6 +152,7 @@ export default function Hero() {
   const prefersReduced = useReducedMotion();
   const [typed, setTyped] = useState(0);
   const [generated, setGenerated] = useState(false);
+  const [swept, setSwept] = useState(false); // shimmer done → unmount it
   const sectionRef = useRef<HTMLElement>(null);
 
   /* Cursor parallax — normalized -1..1, spring-smoothed. */
@@ -269,12 +270,13 @@ export default function Hero() {
             )}
           </motion.div>
 
-          {/* Shimmer sweep — the "generation" flash */}
-          {generated && !prefersReduced && (
+          {/* Shimmer sweep — the "generation" flash; unmounts once it passes through */}
+          {generated && !prefersReduced && !swept && (
             <motion.div
               initial={{ x: "-120%" }}
               animate={{ x: "130%" }}
               transition={{ duration: 1.0, ease: "easeInOut" }}
+              onAnimationComplete={() => setSwept(true)}
               className="pointer-events-none absolute inset-y-0 left-0 z-20 w-2/3 -skew-x-12"
               style={{
                 background:
