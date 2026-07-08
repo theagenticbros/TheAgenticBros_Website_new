@@ -199,24 +199,30 @@ export default function Hero() {
     <section
       ref={sectionRef}
       onMouseMove={handleMouseMove}
-      className="relative flex min-h-[96dvh] items-center justify-center overflow-hidden pb-16 pt-28"
-      style={{
-        WebkitMaskImage:
-          "linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%)",
-        maskImage:
-          "linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%)",
-      }}
+      className="relative flex min-h-[96dvh] items-center justify-center pb-16 pt-28"
     >
-      {/* Living aurora — breathes on its own, bends toward the cursor */}
-      <motion.div style={{ x: auroraX1, y: auroraY1 }} className="absolute inset-0">
-        <div className="bloom bloom-drift left-[-12%] top-[-8%] h-[36rem] w-[36rem] bg-bloom-sky opacity-60" />
-      </motion.div>
-      <motion.div style={{ x: auroraX2, y: auroraY2 }} className="absolute inset-0">
-        <div className="bloom bloom-drift-slow right-[-10%] top-[12%] h-[32rem] w-[32rem] bg-bloom-lilac opacity-60" />
-      </motion.div>
-      <motion.div style={{ x: auroraX3, y: auroraY3 }} className="absolute inset-0">
-        <div className="bloom bloom-drift bottom-[-22%] left-[22%] h-[30rem] w-[42rem] bg-bloom-peach opacity-45" />
-      </motion.div>
+      {/* Aurora — clipped in its own wrapper so the section has no hard edge */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <motion.div style={{ x: auroraX1, y: auroraY1 }} className="absolute inset-0">
+          <div className="bloom bloom-drift left-[-12%] top-[-8%] h-[36rem] w-[36rem] bg-bloom-sky opacity-60" />
+        </motion.div>
+        <motion.div style={{ x: auroraX2, y: auroraY2 }} className="absolute inset-0">
+          <div className="bloom bloom-drift-slow right-[-10%] top-[12%] h-[32rem] w-[32rem] bg-bloom-lilac opacity-60" />
+        </motion.div>
+        <motion.div style={{ x: auroraX3, y: auroraY3 }} className="absolute inset-0">
+          <div className="bloom bloom-drift bottom-[-22%] left-[22%] h-[30rem] w-[42rem] bg-bloom-peach opacity-45" />
+        </motion.div>
+      </div>
+
+      {/* Edge dissolve — sits above fragments (z-20 > z-10) and fades content into the page */}
+      <div
+        className="pointer-events-none absolute inset-y-0 left-0 z-20 w-56"
+        style={{ background: "linear-gradient(to right, #fafaf7 20%, transparent 100%)" }}
+      />
+      <div
+        className="pointer-events-none absolute inset-y-0 right-0 z-20 w-56"
+        style={{ background: "linear-gradient(to left, #fafaf7 20%, transparent 100%)" }}
+      />
 
       <div className="relative z-10 mx-auto w-full max-w-5xl px-6">
         {/* Floating "generated product" fragments */}
